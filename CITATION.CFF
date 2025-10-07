@@ -18,6 +18,3 @@ preferred-citation:
       given-names: "Victor"
   year: 2025
   howpublished: "\\url{https://purl.org/victordelima/mars-dtc}"
-  identifiers:
-    - type: url
-      value: "https://purl.org/victordelima/mars-dtc"
