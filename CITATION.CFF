@@ -11,10 +11,13 @@ url: "https://purl.org/victordelima/mars-dtc"
 license: "MIT"
 type: software
 preferred-citation:
-  type: misc
+  type: software
   title: "mars-dtc: Integrated Mars Datetime and Calendar Support for Python"
   authors:
     - family-names: "De Lima"
       given-names: "Victor"
   year: 2025
   howpublished: "\\url{https://purl.org/victordelima/mars-dtc}"
+  identifiers:
+    - type: url
+      value: "https://purl.org/victordelima/mars-dtc"
