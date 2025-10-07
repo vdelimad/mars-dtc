@@ -6,7 +6,6 @@ authors:
     given-names: "Victor"
 version: "0.1.1"
 date-released: "2025-10-06"
-repository-code: "https://github.com/victordelima/mars-dtc"
 url: "https://purl.org/victordelima/mars-dtc"
 license: "MIT"
 type: software
