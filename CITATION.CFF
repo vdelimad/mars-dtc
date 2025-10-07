@@ -4,17 +4,10 @@ title: "mars-dtc: Integrated Mars Datetime and Calendar Support for Python"
 authors:
   - family-names: "De Lima"
     given-names: "Victor"
-version: "0.1.0"
+version: "0.1.1"
 date-released: "2025-10-06"
 repository-code: "https://github.com/victordelima/mars-dtc"
 url: "https://purl.org/victordelima/mars-dtc"
 license: "MIT"
 type: software
-preferred-citation:
-  type: misc
-  title: "mars-dtc: Integrated Mars Datetime and Calendar Support for Python"
-  authors:
-    - family-names: "De Lima"
-      given-names: "Victor"
-  year: 2025
-  howpublished: "\\url{https://purl.org/victordelima/mars-dtc}"
+
