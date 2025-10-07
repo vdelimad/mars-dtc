@@ -24,7 +24,7 @@
     "href": "index.html#citing-mars-dtc",
     "title": "mars-dtc",
     "section": "Citing mars-dtc",
-    "text": "Citing mars-dtc\nIf you use mars-dtc in your publication, please cite it by using the following BibTeX entry.\n@misc{de_lima_mars-dtc_2025,\n    title = {mars-dtc: {Integrated} {Mars} {Datetime} and {Calendar} {Support} for {Python}},\n    howpublished = {\\url{https://purl.org/victordelima/mars-dtc}},\n    author = {De Lima, Victor},\n    year = {2025},\n}",
+    "text": "Citing mars-dtc\nIf you use mars-dtc in your publication, please cite it by using the following BibTeX entry.\n@software{De_Lima_mars-dtc_Integrated_Mars_2025,\n    author = {De Lima, Victor},\n    license = {MIT},\n    month = oct,\n    title = {{mars-dtc: Integrated Mars Datetime and Calendar Support for Python}},\n    url = {https://purl.org/victordelima/mars-dtc},\n    version = {0.1.1},\n    year = {2025}\n}",
     "crumbs": [
       "Intro"
     ]
