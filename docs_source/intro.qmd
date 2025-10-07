@@ -1,0 +1,74 @@
+# About
+
+Earth-based date packages cannot represent valid Martian dates such as 25/18/22 (yy/mm/dd) or 25/08/55, which would be legitimate under the Darian. `mars-dtc` addresses this limitation by providing date classes and validation logic specific to Mars.
+
+The library offers familiar functionality similar to Python’s `datetime` module. It integrates seamlessly with Pandas and Matplotlib, enabling analysis, visualization, and serialization of Martian temporal data.
+
+This initial release implements the Darian calendar only, which divides the Martian year into 24 months and accounts for leap sols. Future versions may include other proposed Martian calendar systems.
+
+## Features
+
+- Full implementation of the Darian calendar (24 months, 668–669 sols per year) in this initial relase.
+- Core date and time classes:
+  - `MarsDate` for calendar dates
+  - `MarsDateTime` for date–time precision
+  - `MarsTimedelta` for sol-based time deltas
+- Arithmetic, comparisons, and rounding operations
+- Serialization to and from JSON, YAML, and dictionaries
+- Custom Pandas extension dtype for native column and Series support
+- Integration with Matplotlib for native plotting
+- Utilities for generating Martian date ranges and computing week or sol-of-year values
+
+For the full set of features, see the [demo notebook](demo/demo.ipynb) included, showing:
+
+- Basic date and time creation
+- Arithmetic and formatting
+- JSON/YAML serialization
+- Pandas operations
+- Plotting with Matplotlib
+
+Alongside the demo, we include an example dataset of parsed Martian weather data with Darian calendar dates to allows users to test the package’s functionality.
+
+
+## Considerations
+
+### Date Conversion
+
+This is a Mars-first package. It assumes datasets use Martian dates. Conversion from Mars to Earth dates may be added in the future.
+
+### Calendar Epoch
+
+This package does not assume any specific Year 0. It will accept and process any Martian date you provide, regardless of where you decide your calendar begins. All leap-year calculations are made relative to your chosen Year 0.
+
+However, you must stay consistent with that choice. If you later decide that your Year 0 should occur earlier or later in history, you cannot simply adjust the year numbers in your dataset and leave the months and sols unchanged. Leap-year cycles are calculated from the original Year 0, so changing it afterward can cause:
+
+- Invalid dates (for example, a Sol 28 in a month that only has 27 sols), or
+- Shortened years (for example, a year ending on Month 24 Sol 27 when it should end on Sol 28).
+
+In short, `mars-dtc` is epoch-agnostic—it does not know or care where Year 0 is—but once you decide on an epoch, all dates must remain consistent with it.
+
+
+Common reference epochs include:
+
+- Telescopic Epoch: Year 0 begins in 1609, marking the start of telescopic observation of Mars.
+- 1707 Equinox Epoch: Year 0 corresponds to the Martian vernal equinox on January 1, 1707, selected for neutrality.
+- Viking Epoch: Year 0 begins at the Martian vernal equinox on December 18, 1975, near Viking 1’s landing.
+- April 11, 1955 (Ls = 0°): Adopted by the Planetary Society and ESA; Year 1 aligns with a global dust storm observed in 1956.
+
+### Year Representation
+
+Years are always written using at least three digits (for example, Year 1 → 001). Allowing one- or two-digit years would only make sense for a very short period of time—roughly the first hundred Martian years, or about a single human lifetime. Such short representations would also make dates visually ambiguous, since values like 1/08/25 could easily be mistaken for day–month–sol formats. Using three digits ensures that years are always distinguishable from months and sols and that the format remains consistent and unambiguous over the long term.
+
+
+## Demo
+
+We include a demo notebook showcasing a large portion of the libraries capabilities. The data accompying the demo was obtained from [@centro_de_astrobiologia_csic-inta_rems_nodate]. It consists of weather data collected from the Curiosity rover. This dataset is intended solely for demonstration purposes and should not be used for scientific analysis.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+---
+toc: false
+---
+
+
+![](demo/mars_ground_temperature.png)
+
+`mars-dtc` is a Python library for representing and manipulating Martian dates and times.
+
+
+
+## Installation {.unnumbered}
+
+```bash
+pip install mars-dtc
+```
+
+
+
+
+## Citing `mars-dtc`
+
+If you use `mars-dtc` in your publication, please cite it by using the following BibTeX entry.
+
+
+```bibtex
+@misc{de_lima_mars-dtc_2025,
+	title = {mars-dtc: {Integrated} {Mars} {Datetime} and {Calendar} {Support} for {Python}},
+	howpublished = {\url{https://purl.org/victordelima/mars-dtc}},
+	author = {De Lima, Victor},
+	year = {2025},
+}
+```
+
+

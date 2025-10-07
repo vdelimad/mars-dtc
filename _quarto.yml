@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: docs/
+  
+book:
+  title: "mars-dtc"
+  subtitle: "Integrated Martian Calendar and Datetime Support for Python"
+  search: false
+  author: "Victor De Lima"
+  date: "10/6/2025"
+  chapters:
+    - href: index.qmd
+      text: Intro
+    - href: docs_source/intro.qmd
+      text: About
+    - href: docs_source/martian_calendars.qmd
+      text: Martian Calendars
+    - href: demo/demo.ipynb
+      text: Demo
+    - href: docs_source/references.qmd
+      text: References
+
+
+bibliography: docs_source/references.bib
+csl: docs_source/association-for-computing-machinery.csl
+
+format:
+  html:
+    theme:
+      - sandstone
+
+
+

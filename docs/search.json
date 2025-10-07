@@ -1,0 +1,152 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "mars-dtc",
+    "section": "",
+    "text": "Installation\nmars-dtc is a Python library for representing and manipulating Martian dates and times.",
+    "crumbs": [
+      "Intro"
+    ]
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "mars-dtc",
+    "section": "",
+    "text": "pip install mars-dtc",
+    "crumbs": [
+      "Intro"
+    ]
+  },
+  {
+    "objectID": "index.html#citing-mars-dtc",
+    "href": "index.html#citing-mars-dtc",
+    "title": "mars-dtc",
+    "section": "Citing mars-dtc",
+    "text": "Citing mars-dtc\nIf you use mars-dtc in your publication, please cite it by using the following BibTeX entry.\n@misc{de_lima_mars-dtc_2025,\n    title = {mars-dtc: {Integrated} {Mars} {Datetime} and {Calendar} {Support} for {Python}},\n    howpublished = {\\url{https://purl.org/victordelima/mars-dtc}},\n    author = {De Lima, Victor},\n    year = {2025},\n}",
+    "crumbs": [
+      "Intro"
+    ]
+  },
+  {
+    "objectID": "docs_source/intro.html",
+    "href": "docs_source/intro.html",
+    "title": "1  About",
+    "section": "",
+    "text": "1.1 Features\nEarth-based date packages cannot represent valid Martian dates such as 25/18/22 (yy/mm/dd) or 25/08/55, which would be legitimate under the Darian. mars-dtc addresses this limitation by providing date classes and validation logic specific to Mars.\nThe library offers familiar functionality similar to Python’s datetime module. It integrates seamlessly with Pandas and Matplotlib, enabling analysis, visualization, and serialization of Martian temporal data.\nThis initial release implements the Darian calendar only, which divides the Martian year into 24 months and accounts for leap sols. Future versions may include other proposed Martian calendar systems.\nFor the full set of features, see the demo notebook included, showing:\nAlongside the demo, we include an example dataset of parsed Martian weather data with Darian calendar dates to allows users to test the package’s functionality.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "docs_source/intro.html#features",
+    "href": "docs_source/intro.html#features",
+    "title": "1  About",
+    "section": "",
+    "text": "Full implementation of the Darian calendar (24 months, 668–669 sols per year) in this initial relase.\nCore date and time classes:\n\nMarsDate for calendar dates\nMarsDateTime for date–time precision\nMarsTimedelta for sol-based time deltas\n\nArithmetic, comparisons, and rounding operations\nSerialization to and from JSON, YAML, and dictionaries\nCustom Pandas extension dtype for native column and Series support\nIntegration with Matplotlib for native plotting\nUtilities for generating Martian date ranges and computing week or sol-of-year values\n\n\n\nBasic date and time creation\nArithmetic and formatting\nJSON/YAML serialization\nPandas operations\nPlotting with Matplotlib",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "docs_source/intro.html#considerations",
+    "href": "docs_source/intro.html#considerations",
+    "title": "1  About",
+    "section": "1.2 Considerations",
+    "text": "1.2 Considerations\n\n1.2.1 Date Conversion\nThis is a Mars-first package. It assumes datasets use Martian dates. Conversion from Mars to Earth dates may be added in the future.\n\n\n1.2.2 Calendar Epoch\nThis package does not assume any specific Year 0. It will accept and process any Martian date you provide, regardless of where you decide your calendar begins. All leap-year calculations are made relative to your chosen Year 0.\nHowever, you must stay consistent with that choice. If you later decide that your Year 0 should occur earlier or later in history, you cannot simply adjust the year numbers in your dataset and leave the months and sols unchanged. Leap-year cycles are calculated from the original Year 0, so changing it afterward can cause:\n\nInvalid dates (for example, a Sol 28 in a month that only has 27 sols), or\nShortened years (for example, a year ending on Month 24 Sol 27 when it should end on Sol 28).\n\nIn short, mars-dtc is epoch-agnostic—it does not know or care where Year 0 is—but once you decide on an epoch, all dates must remain consistent with it.\nCommon reference epochs include:\n\nTelescopic Epoch: Year 0 begins in 1609, marking the start of telescopic observation of Mars.\n1707 Equinox Epoch: Year 0 corresponds to the Martian vernal equinox on January 1, 1707, selected for neutrality.\nViking Epoch: Year 0 begins at the Martian vernal equinox on December 18, 1975, near Viking 1’s landing.\nApril 11, 1955 (Ls = 0°): Adopted by the Planetary Society and ESA; Year 1 aligns with a global dust storm observed in 1956.\n\n\n\n1.2.3 Year Representation\nYears are always written using at least three digits (for example, Year 1 → 001). Allowing one- or two-digit years would only make sense for a very short period of time—roughly the first hundred Martian years, or about a single human lifetime. Such short representations would also make dates visually ambiguous, since values like 1/08/25 could easily be mistaken for day–month–sol formats. Using three digits ensures that years are always distinguishable from months and sols and that the format remains consistent and unambiguous over the long term.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "docs_source/intro.html#demo",
+    "href": "docs_source/intro.html#demo",
+    "title": "1  About",
+    "section": "1.3 Demo",
+    "text": "1.3 Demo\nWe include a demo notebook showcasing a large portion of the libraries capabilities. The data accompying the demo was obtained from [1]. It consists of weather data collected from the Curiosity rover. This dataset is intended solely for demonstration purposes and should not be used for scientific analysis.\n\n\n\n\n[1] Centro de Astrobiología (CSIC-INTA). REMS Weather Widget. Retrieved October 4, 2025 from http://cab.inta-csic.es/rems/wp-content/plugins/marsweather-widget/widget.php?lang=en",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "docs_source/martian_calendars.html",
+    "href": "docs_source/martian_calendars.html",
+    "title": "2  Martian Calendars",
+    "section": "",
+    "text": "2.1 The Darian Calendar\nWe only provide the Darian calendar in this intial version, but additional calendars maybe added depending on requests.\nIn Earth time, a Martian sol (day) is 24-hour, 39-minute, ~35.244 seconds and the year is ~668.6 sols. To account for this differences, the Darian Calendar [1] defines the following:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Martian Calendars</span>"
+    ]
+  },
+  {
+    "objectID": "docs_source/martian_calendars.html#the-darian-calendar",
+    "href": "docs_source/martian_calendars.html#the-darian-calendar",
+    "title": "2  Martian Calendars",
+    "section": "",
+    "text": "Seconds: 1 a Martian second is ~1.0275 Earth seconds (~2.75%) longer.\nMinutes: 60 Martian seconds per minute.\nHours: 60 Martian minutes per hour.\nSols: 24 Martian hours per day.\nWeeks:\n\nIn 28-sol months: Seven-sol weeks only.\nIn 27-sol months: The final week has six sols.\n\nMonths: 28 and 27-sol months.\nYears. 24 months per year. The calendar year begins on the vernal equinox. A year is either 668 (common) or 669 (leap) sols, depending on leap-year rules.\n\n668 sol years: 20 months of 28 sols and four months of 27 sols (one at the end of each quarter).\n669 sol years: the last month of the year (which also ends the fourth quarter) is a normal length of 28 sols rather than 27.\n\n\n\n2.1.1 Leap year rules\n\nEven-numbered years are 668 sols, except years divisible by 10.\nOdd-numbered years and multiples of 10 are 669 sols.\nEvery year divisible by 100 is 668 sols (extra correction).\nEvery year divisible by 500 is 669 sols (extra correction).\nThis scheme keeps the calendar error at only ~1 sol in 10,000 Martian years.\nIntercalation formula: \\((\\mathrm{Y}-1) \\backslash 2+\\mathrm{Y} \\backslash 10-\\mathrm{Y} \\backslash 100+\\mathrm{Y} \\backslash 500\\).\n\n\n\n2.1.2 Names of the days of the week\nThe following names for the days of the week on Mars are introduced.\n\nSol Solis (Defined as the first day of the week)\nSol Lunae\nSol Martis\nSol Mercurii\nSol Jovis\nSol Veneris\nSol Saturni\n\nWhile, to avoid confusion, people on Mars would call Earth days as follows:\n\nDies Solis (Sunday)\nDies Lunae (Monday)\nDies Martis (Tuesday)\nDies Mercurii (Wednesday)\nDies Jovis (Thursday)\nDies Veneris (Friday)\nDies Saturni (Saturday)\n\n\n\n2.1.3 Names of the Months:\nTwelve months bear zodiacal constellations Latin names and the other twelve the Sanskrit names for these same constellations. Sanskrit names appear in the calendar following its Latin counterpart:\n\nSagittarius\nDhanus\nCapricornus\nMakara\nAquarius\nKumbha\nPisces\nMina\nAries\nMesha\nTaurus\nRishabha\nGemini\nMithuna\nCancer\nKarka\nLeo\nSimha\nVirgo\nKanya\nLibra\nTula\nScorpius\nVrishika",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Martian Calendars</span>"
+    ]
+  },
+  {
+    "objectID": "docs_source/martian_calendars.html#other-calendars",
+    "href": "docs_source/martian_calendars.html#other-calendars",
+    "title": "2  Martian Calendars",
+    "section": "2.2 Other Calendars",
+    "text": "2.2 Other Calendars\nAdditional calendars maybe added in the future.\n\n\n\n\n[1] Thomas Gangale. 1998. The Darian Calendar. Mars Society. Retrieved from https://www.marspapers.org/paper/MAR98095.pdf",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Martian Calendars</span>"
+    ]
+  },
+  {
+    "objectID": "demo/demo.html",
+    "href": "demo/demo.html",
+    "title": "3  Demo",
+    "section": "",
+    "text": "3.1 Setup\n# ---------------- Imports ----------------\nimport os\n\nimport matplotlib.pyplot as plt\nfrom matplotlib.ticker import FuncFormatter\nimport numpy as np\nimport pandas as pd\n\nimport mars_dtc as mdt\n# ---------------- Args ----------------\ninput_data_file = \"mars_weather_data.csv\"",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Demo</span>"
+    ]
+  },
+  {
+    "objectID": "demo/demo.html#basic-features",
+    "href": "demo/demo.html#basic-features",
+    "title": "3  Demo",
+    "section": "3.2 Basic Features",
+    "text": "3.2 Basic Features\n\n3.2.1 Basic Construction and Display\nCalendar specification (Note, only Darian currently supported)\n\nd_custom = mdt.MarsDate(214, 5, 12, calendar=mdt.DarianCalendar())\nd_custom\n\nDarianCalendarDate(214, 5, 12)\n\n\nFrom integers\n\nmdt.MarsDate(214, 14, 28)\n\nDarianCalendarDate(214, 14, 28)\n\n\nFrom string\n\nmdt.MarsDate.from_string(\"214-14-28\")\n\nDarianCalendarDate(214, 14, 28)\n\n\n\nmdt.MarsDate.from_string(\"214/14/28\")\n\nDarianCalendarDate(214, 14, 28)\n\n\n\nmdt.MarsDate.from_string(\"214.14.28\")\n\nDarianCalendarDate(214, 14, 28)\n\n\nNegatives Years\n\nmdt.MarsDate.from_string(\"-214-14-28\")\n\nDarianCalendarDate(-214, 14, 28)\n\n\n\nmdt.MarsDate.from_string(\"-214/14/28\")\n\nDarianCalendarDate(-214, 14, 28)\n\n\n\nmdt.MarsDate.from_string(\"-214.14.28\")\n\nDarianCalendarDate(-214, 14, 28)\n\n\nOrdinals\n\n# From ordinal\nord_val = mdt.MarsDate(214, 12, 10).to_ordinal()\n\nord_val\n\n143395\n\n\n\nmdt.MarsDate.from_ordinal(ord_val)\n\nDarianCalendarDate(214, 12, 10)\n\n\n\n# From ordinal\nord_val = mdt.MarsDate(-214, 12, 10).to_ordinal()\n\nord_val\n\n-142762\n\n\n\nmdt.MarsDate.from_ordinal(ord_val)\n\nDarianCalendarDate(-214, 12, 10)\n\n\nFormats\n\n%Y → full year (with sign)\n%y → last 2 digits of year\n%m → numeric month (01–24)\n%b → abbreviated month (Sag → Sag, Dhan → Dha, etc.)\n%B → full month name (Sagittarius)\n%d → sol number (01–28)\n%A → full weekday name (Sol Jovis)\n%a → abbreviated weekday (Jov)\n\n\nmdate = mdt.MarsDate(214, 14, 28)\n\n\nprint(mdate.format(\"%Y/%m/%d\"))       # 0214/14/28\nprint(mdate.format(\"%b %d, %Y\"))      # Mit 28, 0214\nprint(mdate.format(\"%B %d, %Y\"))      # Mithuna 28, 0214\nprint(mdate.format(\"%A, %B %d, %Y\"))  # Sol Jovis, Mithuna 28\nprint(mdate.format(\"%a, %b %d, %Y\"))  # Jov, Mit 28, 0214\n\n214/14/28\nMit 28, 214\nMithuna 28, 214\nSol Mercurii, Mithuna 28, 214\nMer, Mit 28, 214\n\n\nEquality and comparison\n\nmdate1 = mdt.MarsDate(214, 20, 2) # larger\nmdate2 = mdt.MarsDate(214, 14, 28)\n\nmdate1 == mdate2\n\nFalse\n\n\n\nmdate1 &lt; mdate2\n\nFalse\n\n\n\nmdate1 &gt; mdate2\n\nTrue\n\n\n\nmdate1 &lt;= mdate2\n\nFalse\n\n\n\nmdate1 != mdate2\n\nTrue\n\n\n\nmdate2 &gt; mdate1\n\nFalse\n\n\n\nsorted([mdate2, mdate1])\n\n[DarianCalendarDate(214, 14, 28), DarianCalendarDate(214, 20, 2)]\n\n\nHashability\n\ndates_dict = {mdate1: \"start\", mdate2: \"mid\"}\ndates_dict[mdate2]\n\n'mid'\n\n\nFrom JSON or YAML\n\nmdt.MarsDate.from_json(mdate2.to_json())\n\nDarianCalendarDate(214, 14, 28)\n\n\n\nmdt.MarsDate.from_yaml(mdate2.to_yaml())\n\nDarianCalendarDate(214, 14, 28)\n\n\n\nmdate2 = mdt.MarsDate(214, 20, 2)\nj = mdate2.to_json()\ny = mdate2.to_yaml()\n\nprint(\"JSON:\", j)\nprint(\"YAML:\", y)\n\nassert mdt.MarsDate.from_json(j) == mdate2\nassert mdt.MarsDate.from_yaml(y) == mdate2\n\nJSON: {\"year\": 214, \"month\": 20, \"sol\": 2, \"calendar\": \"DarianCalendar\"}\nYAML: calendar: DarianCalendar\nmonth: 20\nsol: 2\nyear: 214\n\n\n\nDisplay in different formats\n\nprint(\"String:\", str(mdate2))\nprint(\"Repr:\", repr(mdate2))\nprint(\"ISO:\", mdate2.isoformat())\nprint(\"Dict:\", mdate2.to_dict())\nprint(\"JSON:\", mdate2.to_json())\nprint(\"YAML:\", mdate2.to_yaml())\n\nString: 214/20/02\nRepr: DarianCalendarDate(214, 20, 2)\nISO: +0214-20-02\nDict: {'year': 214, 'month': 20, 'sol': 2, 'calendar': 'DarianCalendar'}\nJSON: {\"year\": 214, \"month\": 20, \"sol\": 2, \"calendar\": \"DarianCalendar\"}\nYAML: calendar: DarianCalendar\nmonth: 20\nsol: 2\nyear: 214\n\n\n\n\n\n3.2.2 Utilities\nDate range generation\n\nmdt.mars_date_range(start=\"0214/14/25\", end=\"0214/15/10\", freq=\"sol\")\n\n\n[DarianCalendarDate(214, 14, 25),\n DarianCalendarDate(214, 14, 26),\n DarianCalendarDate(214, 14, 27),\n DarianCalendarDate(214, 14, 28),\n DarianCalendarDate(214, 15, 1),\n DarianCalendarDate(214, 15, 2),\n DarianCalendarDate(214, 15, 3),\n DarianCalendarDate(214, 15, 4),\n DarianCalendarDate(214, 15, 5),\n DarianCalendarDate(214, 15, 6),\n DarianCalendarDate(214, 15, 7),\n DarianCalendarDate(214, 15, 8),\n DarianCalendarDate(214, 15, 9),\n DarianCalendarDate(214, 15, 10)]\n\n\nRange with frequency in months/years\n\nmdt.mars_date_range(\"214/01/01\", \"215/01/01\", freq=\"month\")\n\n\n[DarianCalendarDate(214, 1, 1),\n DarianCalendarDate(214, 2, 1),\n DarianCalendarDate(214, 3, 1),\n DarianCalendarDate(214, 4, 1),\n DarianCalendarDate(214, 5, 1),\n DarianCalendarDate(214, 6, 1),\n DarianCalendarDate(214, 7, 1),\n DarianCalendarDate(214, 8, 1),\n DarianCalendarDate(214, 9, 1),\n DarianCalendarDate(214, 10, 1),\n DarianCalendarDate(214, 11, 1),\n DarianCalendarDate(214, 12, 1),\n DarianCalendarDate(214, 13, 1),\n DarianCalendarDate(214, 14, 1),\n DarianCalendarDate(214, 15, 1),\n DarianCalendarDate(214, 16, 1),\n DarianCalendarDate(214, 17, 1),\n DarianCalendarDate(214, 18, 1),\n DarianCalendarDate(214, 19, 1),\n DarianCalendarDate(214, 20, 1),\n DarianCalendarDate(214, 21, 1),\n DarianCalendarDate(214, 22, 1),\n DarianCalendarDate(214, 23, 1),\n DarianCalendarDate(214, 24, 1),\n DarianCalendarDate(215, 1, 1)]\n\n\n\nmdt.mars_date_range(\"214/01/01\", \"216/01/01\", freq=\"year\")\n\n[DarianCalendarDate(214, 1, 1),\n DarianCalendarDate(215, 1, 1),\n DarianCalendarDate(216, 1, 1)]\n\n\nGenerate dataframe of all sols in a Martian year\n\nyear_214 = mdt.mars_date_range(\"0214/01/01\", \"215/24/28\", freq=\"sol\")\nall_sols = pd.DataFrame({\"MarsDate\": year_214})\n\ndisplay(all_sols.head())\ndisplay(all_sols.tail())\n\n\n\n\n\n\n\n\nMarsDate\n\n\n\n\n0\n214/01/01\n\n\n1\n214/01/02\n\n\n2\n214/01/03\n\n\n3\n214/01/04\n\n\n4\n214/01/05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarsDate\n\n\n\n\n1332\n215/24/24\n\n\n1333\n215/24/25\n\n\n1334\n215/24/26\n\n\n1335\n215/24/27\n\n\n1336\n215/24/28\n\n\n\n\n\n\n\nGet Martian week, season, or sol-of-year\n\nmdt.get_martian_week(mdate2)\n\n\n\n76\n\n\n\nmdate2.sol_of_year()\n\n531\n\n\nWeekday name\n\nmdate2.weekday()\n\n\n5\n\n\n\nmdate2.weekday_name()\n\n'Sol Jovis'\n\n\n\n\n3.2.3 Time\n\nt1 = mdt.MarsDateTime(214, 14, 28, 12, 30, 0)\nt2 = mdt.MarsDateTime(214, 14, 28, 15, 0, 0)\n\nprint(\"t1:\", t1)\nprint(\"t2:\", t2)\nprint(\"Difference:\", t2 - t1)\n\n\nt1: 214/14/28 12:30:00\nt2: 214/14/28 15:00:00\nDifference: MarsTimedelta(+0.10416666665696539 sols)\n\n\nAdding timedelta\n\ntd = mdt.MarsTimedelta(0.5)\nprint(\"t1 + 0.5 sols:\", t1 + td)\n\n\nt1 + 0.5 sols: 214/15/01 00:30:00\n\n\nRounding/Flooring\n\nprint(\"t1.floor('hour'):\", t1.floor(\"hour\"))\nprint(\"t1.ceil('hour'):\", t1.ceil(\"hour\"))\nprint(\"t1.round('minute'):\", t1.round(\"minute\"))\n\n\nt1.floor('hour'): 214/14/28 12:00:00\nt1.ceil('hour'): 214/14/28 13:00:00\nt1.round('minute'): 214/14/28 12:30:00\n\n\nJSON/YAML compatibility\n\nj = t1.to_json()\ny = t1.to_yaml()\nprint(\"JSON:\", j)\nprint(\"YAML:\", y)\n\nJSON: {\"year\": 214, \"month\": 14, \"sol\": 28, \"calendar\": \"DarianCalendar\", \"hour\": 12, \"minute\": 30, \"second\": 0}\nYAML: calendar: DarianCalendar\nhour: 12\nminute: 30\nmonth: 14\nsecond: 0\nsol: 28\nyear: 214\n\n\n\n\n\n3.2.4 Behavior\n\ndarian = mdt.DarianCalendar()\nfor y in range(1, 13):\n    print(f\"Year {y:04d} leap? {darian.is_leap_year(y)}\")\n\nYear 0001 leap? True\nYear 0002 leap? False\nYear 0003 leap? True\nYear 0004 leap? False\nYear 0005 leap? True\nYear 0006 leap? False\nYear 0007 leap? True\nYear 0008 leap? False\nYear 0009 leap? True\nYear 0010 leap? True\nYear 0011 leap? True\nYear 0012 leap? False\n\n\nInspect month lengths\n\ndarian.month_lengths(10)\n\n[28,\n 28,\n 28,\n 28,\n 28,\n 27,\n 28,\n 28,\n 28,\n 28,\n 28,\n 27,\n 28,\n 28,\n 28,\n 28,\n 28,\n 27,\n 28,\n 28,\n 28,\n 28,\n 28,\n 28]\n\n\n\ndarian.month_lengths(100)\n\n[28,\n 28,\n 28,\n 28,\n 28,\n 27,\n 28,\n 28,\n 28,\n 28,\n 28,\n 27,\n 28,\n 28,\n 28,\n 28,\n 28,\n 27,\n 28,\n 28,\n 28,\n 28,\n 28,\n 27]\n\n\nCount total sols per year\n\nsum(darian.month_lengths(1))\n\n669\n\n\n\n\n3.2.5 Arithmetic and Timedelta\nDate arithmetic\n\nmdate = mdt.MarsDate(214, 14, 26)\ndelta = mdt.MarsTimedelta(sols=10)\nmdate_plus = mdate + delta\nmdate_minus = mdate - delta\nprint(\"mdate:\", mdate)\nprint(\"d+10:\", mdate_plus)\nprint(\"d-10:\", mdate_minus)\n\nmdate: 214/14/26\nd+10: 214/15/08\nd-10: 214/14/16\n\n\nDifference between two dates\n\nmdate_diff = mdate_plus - mdate\nprint(\"Difference in sols:\", mdate_diff.sols)\n\nDifference in sols: 10.0\n\n\nAdd/subtract years and months\n\nmdate = mdt.MarsDate(201, 23, 15)\n\nmdate.add_months(3)\n\n\nDarianCalendarDate(202, 2, 15)\n\n\n\nmdate.add_months(-25)\n\nDarianCalendarDate(200, 22, 15)\n\n\n\nmdate.add_years(2)\n\nDarianCalendarDate(203, 23, 15)\n\n\n\nmdate.add_sols(500)\n\nDarianCalendarDate(202, 17, 13)\n\n\nFloor/ceil/round to month or year\n\nmdate = mdt.MarsDate(201, 22, 15)\n\nmdate.floor(\"month\")\n\n\nDarianCalendarDate(201, 22, 1)\n\n\n\nmdate.ceil(\"year\")\n\nDarianCalendarDate(201, 24, 28)\n\n\n\nmdate.round(\"month\")\n\nDarianCalendarDate(201, 23, 1)\n\n\n\nmdate.round(\"year\")\n\nDarianCalendarDate(202, 1, 1)\n\n\nVectorized date arithmetic\n\narr = mdt.MarsDateArray([mdate, mdate_plus, mdate_minus])\narr + mdt.MarsTimedelta(sols=5)\n\n\nMarsDateArray([DarianCalendarDate(201, 22, 20) DarianCalendarDate(214, 15, 13)\n DarianCalendarDate(214, 14, 21)])\n\n\nDifference across an array\n\narr.diff()\n\narray([None, MarsTimedelta(+8490.0 sols), MarsTimedelta(-20.0 sols)],\n      dtype=object)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Demo</span>"
+    ]
+  },
+  {
+    "objectID": "demo/demo.html#pandas",
+    "href": "demo/demo.html#pandas",
+    "title": "3  Demo",
+    "section": "3.3 Pandas",
+    "text": "3.3 Pandas\nLet’s bring in some data.\n\n# ---------------- Dataset ----------------\nweather_data = pd.read_csv(os.path.join(input_data_file))\n\ndisplay(weather_data.shape)\ndisplay(weather_data.head())\n\n\n(4394, 20)\n\n\n\n\n\n\n\n\n\nsol\nearth_date_utc\nmars_month\nsolar_longitude_degrees\nair_temperature_max\nair_temperature_min\nair_temperature_unit\nground_temperature_max\nground_temperature_min\nground_temperature_unit\npressure_current\npressure_unit\nsunrise_and_sunset_max\nsunrise_and_sunset_min\nultraviolet_radiation_current\nultraviolet_radiation_numerical\ndarian_year\ndarian_month\ndarian_sol\ndarian_date\n\n\n\n\n0\n10\n2012-08-16\n6\n155\n-16\n-75\nC\n8\n-83\nC\n739\nPa\n05:28\n17:22\nVery High\n4.0\n214\n12\n22\n214-12-22\n\n\n1\n11\n2012-08-17\n6\n156\n-11\n-76\nC\n9\n-83\nC\n740\nPa\n05:28\n17:21\nVery High\n4.0\n214\n12\n23\n214-12-23\n\n\n2\n12\n2012-08-18\n6\n156\n-18\n-76\nC\n8\n-82\nC\n741\nPa\n05:28\n17:21\nVery High\n4.0\n214\n12\n24\n214-12-24\n\n\n3\n13\n2012-08-19\n6\n157\n-15\n-74\nC\n8\n-80\nC\n732\nPa\n05:28\n17:21\nVery High\n4.0\n214\n12\n25\n214-12-25\n\n\n4\n14\n2012-08-20\n6\n157\n-16\n-74\nC\n9\n-82\nC\n740\nPa\n05:27\n17:21\nVery High\n4.0\n214\n12\n26\n214-12-26\n\n\n\n\n\n\n\nAnd create some sample subtables.\n\nground_temperature = weather_data[['darian_date', 'ground_temperature_max']].copy()\nground_temperature[\"darian_date\"] = mdt.MarsDateArray(ground_temperature[\"darian_date\"])\n\ndisplay(ground_temperature.dtypes)\n\ndisplay(ground_temperature.head())\n\ndarian_date               marsdate\nground_temperature_max       int64\ndtype: object\n\n\n\n\n\n\n\n\n\ndarian_date\nground_temperature_max\n\n\n\n\n0\n214/12/22\n8\n\n\n1\n214/12/23\n9\n\n\n2\n214/12/24\n8\n\n\n3\n214/12/25\n8\n\n\n4\n214/12/26\n9\n\n\n\n\n\n\n\n\npressure = weather_data[['darian_date', 'pressure_current']].copy()\npressure[\"darian_date\"] = mdt.MarsDateArray(pressure[\"darian_date\"])\n\npressure.head()\n\n\n\n\n\n\n\n\n\ndarian_date\npressure_current\n\n\n\n\n0\n214/12/22\n739\n\n\n1\n214/12/23\n740\n\n\n2\n214/12/24\n741\n\n\n3\n214/12/25\n732\n\n\n4\n214/12/26\n740\n\n\n\n\n\n\n\nSorting\n\nground_sorted = ground_temperature.sort_values(\"darian_date\", ascending=False)\nground_sorted.head()\n\n\n\n\n\n\n\n\n\ndarian_date\nground_temperature_max\n\n\n\n\n4393\n221/12/07\n6\n\n\n4392\n221/12/06\n7\n\n\n4391\n221/12/05\n6\n\n\n4390\n221/12/04\n2\n\n\n4389\n221/12/03\n6\n\n\n\n\n\n\n\nIndexing\n\nground_sorted = ground_sorted.set_index(\"darian_date\")\nground_sorted.head()\n\n\n\n\n\n\n\n\n\nground_temperature_max\n\n\ndarian_date\n\n\n\n\n\n221/12/07\n6\n\n\n221/12/06\n7\n\n\n221/12/05\n6\n\n\n221/12/04\n2\n\n\n221/12/03\n6\n\n\n\n\n\n\n\n\nprint(\"First record:\", ground_sorted.index.min())\nprint(\"Last record:\", ground_sorted.index.max())\n\n\nFirst record: 214/12/22\nLast record: 221/12/07\n\n\nFiltering by date range\n\nstart = mdt.MarsDate.from_string(\"214-10-01\")\nend = mdt.MarsDate.from_string(\"214-20-01\")\n\nmask = (ground_sorted.index &gt;= start) & (ground_sorted.index &lt;= end)\nground_filtered = ground_sorted.loc[mask]\n\nprint(f\"Filtered between {start} and {end}: {ground_filtered.shape[0]} rows\")\nground_filtered.head()\n\n\nFiltered between 214/10/01 and 214/20/01: 182 rows\n\n\n\n\n\n\n\n\n\nground_temperature_max\n\n\ndarian_date\n\n\n\n\n\n214/19/17\n4\n\n\n214/19/16\n6\n\n\n214/19/15\n5\n\n\n214/19/14\n7\n\n\n214/19/09\n7\n\n\n\n\n\n\n\nArithmetic on MarsDate columns\n\n# Compute 5 sols later for every observation\nground_temperature[\"darian_date_plus5\"] = (\n    ground_temperature[\"darian_date\"] + mdt.MarsTimedelta(sols=5)\n)\nground_temperature.head()\n\n\n\n\n\n\n\n\n\ndarian_date\nground_temperature_max\ndarian_date_plus5\n\n\n\n\n0\n214/12/22\n8\n214/12/27\n\n\n1\n214/12/23\n9\n214/13/01\n\n\n2\n214/12/24\n8\n214/13/02\n\n\n3\n214/12/25\n8\n214/13/03\n\n\n4\n214/12/26\n9\n214/13/04\n\n\n\n\n\n\n\nJoining two tables on MarsDate\n\nmerged = pd.merge(\n    ground_temperature,\n    pressure,\n    on=\"darian_date\",\n    how=\"inner\"\n)\ndisplay(merged.head())\n\n\n\n\n\n\n\n\n\ndarian_date\nground_temperature_max\ndarian_date_plus5\npressure_current\n\n\n\n\n0\n214/12/22\n8\n214/12/27\n739\n\n\n1\n214/12/23\n9\n214/13/01\n740\n\n\n2\n214/12/24\n8\n214/13/02\n741\n\n\n3\n214/12/25\n8\n214/13/03\n732\n\n\n4\n214/12/26\n9\n214/13/04\n740\n\n\n\n\n\n\n\nGrouping and aggregation\n\nmerged[\"year\"] = merged[\"darian_date\"].apply(lambda d: d.year if d is not None else np.nan)\nmerged[\"month\"] = merged[\"darian_date\"].apply(lambda d: d.month if d is not None else np.nan)\n\nmonthly_avg = (\n    merged.groupby([\"year\", \"month\"])\n    .agg(avg_temp=(\"ground_temperature_max\", \"mean\"),\n         avg_pressure=(\"pressure_current\", \"mean\"))\n    .reset_index()\n)\ndisplay(monthly_avg.head())\n\n\n\n\n\n\n\n\n\nyear\nmonth\navg_temp\navg_pressure\n\n\n\n\n0\n214\n12\n8.333333\n738.666667\n\n\n1\n214\n13\n6.708333\n746.875000\n\n\n2\n214\n14\n11.821429\n769.250000\n\n\n3\n214\n15\n14.607143\n806.785714\n\n\n4\n214\n16\n14.321429\n855.321429\n\n\n\n\n\n\n\nPlotting with df.plot()\n\nax = merged.plot(\n    x=\"darian_date\",\n    y=[\"ground_temperature_max\", \"pressure_current\"],\n    title=\"Martian Ground Temperature and Pressure over Time\",\n    grid=True,\n    linewidth=1.2,\n)\nplt.xticks(rotation=45)\nplt.tight_layout()  # prevents label cutoff\nplt.show()\n\n\n\n\n\n\n\n\n\n\nConversion and serialization\n\n# Convert to ordinals\nordinals = ground_temperature[\"darian_date\"].to_numpy()\nprint(\"Numeric ordinals:\", ordinals[:5])\n\n\nNumeric ordinals: [143407. 143408. 143409. 143410. 143411.]\n\n\n\n# Convert to strings\nas_str = ground_temperature[\"darian_date\"].astype(str)\nprint(\"String view:\", as_str.head())\n\n\nString view: 0    143407.0\n1    143408.0\n2    143409.0\n3    143410.0\n4    143411.0\nName: darian_date, dtype: object\n\n\ncompute time differences between consecutive rows\n\nd = ground_sorted.index\ndiffs = np.diff([v.to_ordinal() for v in d])\nprint(\"Average sols between samples:\", np.mean(diffs))\n\n\nAverage sols between samples: -1.0619166856362394\n\n\nExample: resampling equivalent (manual for now)\nMarsDate supports floor/ceil/round, so you can use them to create binning categories.\n\nground_temperature[\"darian_date\"] = mdt.MarsDateArray([\n    mdt.MarsDate.from_string(x) if isinstance(x, str) else x\n    for x in ground_temperature[\"darian_date\"]\n])\n\n\ncol = ground_temperature[\"darian_date\"]\nprint(\"dtype:\", col.dtype)\nprint(\"type(col.array):\", type(col.array))\nprint(\"sample:\", col.iloc[0])\n\ndtype: marsdate\ntype(col.array): &lt;class 'mars_dtc.pandas_ext.MarsDateArray'&gt;\nsample: 214/12/22\n\n\n\n# Vectorized floor across the whole column\nground_temperature[\"month_floor\"] = ground_temperature[\"darian_date\"].array.floor(\"month\")\n\n# Group by the floored month\nmonthly_group = (\n    ground_temperature.groupby(\"month_floor\")[\"ground_temperature_max\"]\n    .mean()\n    .reset_index()\n)\n\nmonthly_group.head()\n\n\n\n\n\n\n\n\nmonth_floor\nground_temperature_max\n\n\n\n\n0\n214/12/01\n8.333333\n\n\n1\n214/13/01\n6.708333\n\n\n2\n214/14/01\n11.821429\n\n\n3\n214/15/01\n14.607143\n\n\n4\n214/16/01\n14.321429",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Demo</span>"
+    ]
+  },
+  {
+    "objectID": "demo/demo.html#matplotlib",
+    "href": "demo/demo.html#matplotlib",
+    "title": "3  Demo",
+    "section": "3.4 Matplotlib",
+    "text": "3.4 Matplotlib\n\n# simple subset\nsubset = merged.head(100).copy()\n\nx = subset[\"darian_date\"].array\ny_temp = subset[\"ground_temperature_max\"]\ny_pressure = subset[\"pressure_current\"]\n\n# Create figure and plot\nfig, ax1 = plt.subplots(figsize=(10, 5))\n\nax1.plot(x, y_temp, color=\"red\", label=\"Ground Temperature (°C)\")\nax1.set_xlabel(\"Darian Date\")\nax1.set_ylabel(\"Ground Temperature (°C)\", color=\"red\")\n\nax2 = ax1.twinx()\nax2.plot(x, y_pressure, color=\"blue\", label=\"Pressure (Pa)\")\nax2.set_ylabel(\"Pressure (Pa)\", color=\"blue\")\n\nax1.grid(True)\nfig.suptitle(\"Martian Ground Temperature and Pressure (Darian Calendar)\", fontsize=13)\n\nfig.autofmt_xdate()\nplt.show()\n\n\n\n\n\n\n\n\n\nfig, ax = plt.subplots(figsize=(10, 5))\n\nax.plot(\n    merged[\"darian_date\"],\n    merged[\"ground_temperature_max\"],\n    color=\"red\",\n    label=\"Ground Temperature (°C)\"\n)\n\ndef marsdate_formatter(x, pos):\n    if np.isnan(x):\n        return \"NaT\"\n    d = mdt.MarsDate.from_ordinal(int(x))\n\n    return f\"{d.year} {d.calendar.month_name(d.month)} {d.sol:02d}\"\n\nax.xaxis.set_major_formatter(FuncFormatter(marsdate_formatter))\n\nax.set_title(\"Ground Temperature Over Martian Time\", fontsize=12)\nax.set_xlabel(\"Darian Date (Year–Month–Sol)\")\nax.set_ylabel(\"Temperature (°C)\")\nax.grid(True)\nax.legend()\nfig.autofmt_xdate()\n\nfig.savefig(\"mars_ground_temperature.png\", dpi=300, bbox_inches=\"tight\")\n\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Demo</span>"
+    ]
+  },
+  {
+    "objectID": "docs_source/references.html",
+    "href": "docs_source/references.html",
+    "title": "References",
+    "section": "",
+    "text": "[1] Centro de Astrobiología (CSIC-INTA).\nREMS Weather Widget. Retrieved\nOctober 4, 2025 from http://cab.inta-csic.es/rems/wp-content/plugins/marsweather-widget/widget.php?lang=en\n\n\n[2] Thomas Gangale. 1998. The\nDarian Calendar. Mars Society. Retrieved\nfrom https://www.marspapers.org/paper/MAR98095.pdf",
+    "crumbs": [
+      "References"
+    ]
+  }
+]

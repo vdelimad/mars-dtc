@@ -1,0 +1,93 @@
+# Martian Calendars
+
+
+We only provide the Darian calendar in this intial version, but additional calendars maybe added depending on requests.
+
+
+## The Darian Calendar
+
+In Earth time, a Martian sol (day) is 24-hour, 39-minute, ~35.244 seconds and the year is ~668.6 sols. To account for this differences, the Darian Calendar [@gangale_darian_1998] defines the following:
+
+- **Seconds**: 1 a Martian second is ~1.0275 Earth seconds (~2.75%) longer.
+- **Minutes**: 60 Martian seconds per minute.
+- **Hours**: 60 Martian minutes per hour.
+- **Sols**: 24 Martian hours per day.
+- **Weeks**: 
+  - In 28-sol months: Seven-sol weeks only.
+  - In 27-sol months: The final week has six sols.
+- **Months**: 28 and 27-sol months.
+- **Years**. 24 months per year. The calendar year begins on the vernal equinox. A year is either 668 (common) or 669 (leap) sols, depending on leap-year rules.
+  - 668 sol years: 20 months of 28 sols and four months of 27 sols (one at the end of each quarter).
+  - 669 sol years: the last month of the year (which also ends the fourth quarter) is a normal length of 28 sols rather than 27.
+
+
+### Leap year rules
+
+- Even-numbered years are 668 sols, except years divisible by 10.
+- Odd-numbered years and multiples of 10 are 669 sols.
+- Every year divisible by 100 is 668 sols (extra correction).
+- Every year divisible by 500 is 669 sols (extra correction).
+- This scheme keeps the calendar error at only ~1 sol in 10,000 Martian years.
+- Intercalation formula: $(\mathrm{Y}-1) \backslash 2+\mathrm{Y} \backslash 10-\mathrm{Y} \backslash 100+\mathrm{Y} \backslash 500$.
+
+
+### Names of the days of the week
+
+The following names for the days of the week on Mars are introduced.
+
+- Sol Solis (Defined as the first day of the week)
+- Sol Lunae
+- Sol Martis
+- Sol Mercurii
+- Sol Jovis
+- Sol Veneris
+- Sol Saturni
+
+While, to avoid confusion, people on Mars would call Earth days as follows:
+
+- Dies Solis (Sunday)
+- Dies Lunae (Monday)
+- Dies Martis (Tuesday)
+- Dies Mercurii (Wednesday)
+- Dies Jovis (Thursday)
+- Dies Veneris (Friday)
+- Dies Saturni (Saturday)
+
+### Names of the Months:
+
+Twelve months bear zodiacal constellations Latin names and the other twelve the Sanskrit names for these same constellations. Sanskrit names appear in the calendar following its
+Latin counterpart:
+
+1. Sagittarius
+2. Dhanus
+3. Capricornus
+4. Makara
+5. Aquarius
+6. Kumbha
+7. Pisces
+8. Mina
+9. Aries
+10. Mesha
+11. Taurus
+12. Rishabha
+13. Gemini
+14. Mithuna
+15. Cancer
+16. Karka
+17. Leo
+18. Simha
+19. Virgo
+20. Kanya
+21. Libra
+22. Tula
+23. Scorpius
+24. Vrishika
+
+
+## Other Calendars
+
+Additional calendars maybe added in the future.
+
+
+
+
