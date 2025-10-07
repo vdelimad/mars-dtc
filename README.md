@@ -1,5 +1,7 @@
 # mars-dtc: Integrated Mars Datetime and Calendar Support for Python.
 
+[![PyPI version](https://badge.fury.io/py/mars-dtc.svg)](https://pypi.org/project/mars-dtc/)
+
 ![](demo/mars_ground_temperature.png)
 
 `mars-dtc` is a Python library for representing and manipulating Martian dates and times. 
