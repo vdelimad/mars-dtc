@@ -50,7 +50,6 @@ If you use `mars-dtc` in your publication, please cite it by using the following
 ```bibtex
 @software{De_Lima_mars-dtc_Integrated_Mars_2025,
 	author = {De Lima, Victor},
-	license = {MIT},
 	month = oct,
 	title = {{mars-dtc: Integrated Mars Datetime and Calendar Support for Python}},
 	url = {https://purl.org/victordelima/mars-dtc},
