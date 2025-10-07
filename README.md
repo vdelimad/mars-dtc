@@ -40,7 +40,7 @@ For the full set of features, see the [demo notebook](demo/demo.ipynb) included,
 Alongside the demo, we include an example dataset of parsed Martian weather data with Darian calendar dates to allows users to test the package’s functionality.
 
 
-## Citing `mars-dtc`
+## Citing mars-dtc
 
 If you use `mars-dtc` in your publication, please cite it by using the following BibTeX entry.
 

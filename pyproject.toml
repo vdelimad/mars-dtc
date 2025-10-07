@@ -23,6 +23,5 @@ include = ["mars_dtc*"]
 exclude = ["tests*", "docs*", "demo*"]
 
 [project.urls]
-Homepage = "https://purl.org/victordelima/mars-dtc"
+Homepage = "www.victordelima.com/mars-dtc/"
 Repository = "https://purl.org/victordelima/mars-dtc"
-Documentation = "https://purl.org/victordelima/mars-dtc"

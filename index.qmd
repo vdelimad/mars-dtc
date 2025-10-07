@@ -18,7 +18,7 @@ pip install mars-dtc
 
 
 
-## Citing `mars-dtc`
+## Citing mars-dtc
 
 If you use `mars-dtc` in your publication, please cite it by using the following BibTeX entry.
 
