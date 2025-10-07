@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mars-dtc"
 version = "0.1.0"
-description = "Integrated Martian calendar and datetime support for Python"
+description = "Integrated Martian datetime and calendar support for Python"
 authors = [{ name = "Victor De Lima" }]
 readme = "README.md"
 requires-python = ">=3.9"
