@@ -19,7 +19,7 @@ This initial release implements the Darian calendar only, which divides the Mart
 - Integration with Matplotlib for native plotting
 - Utilities for generating Martian date ranges and computing week or sol-of-year values
 
-For the full set of features, see the [demo notebook](demo/demo.ipynb) included, showing:
+For the full set of features, see the [demo notebook](../demo/demo.html) included, showing:
 
 - Basic date and time creation
 - Arithmetic and formatting
